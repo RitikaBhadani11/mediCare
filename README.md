@@ -14,6 +14,7 @@ A Django-based web application that allows patients to book doctor appointments 
 - **Medicine Notifications** - Timely reminders for medications
 - **User Authentication** - Secure login and registration system
 - **Pre-appointment Formalities** - Complete all paperwork online before visits
+- **Google Maps Integration** - Find nearby doctors and clinics with interactive maps and location services.
 
 ## 🛠️ Technology Stack
 
