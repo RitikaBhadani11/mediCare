@@ -1,0 +1,393 @@
+<!-- loading static files -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctors Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+  <!-- _______________________________________________adding custom css file________________________________ -->
+  <link rel="stylesheet" href="{% static 'doctor/DoctorDetailForm/form.css' %}" />
+</head>
+
+<body>
+  <div class="container text text-center p-3">
+    <a class="btn btn-outline-success float-start" href="#" role="button">Go-back</a>
+    <strong class="fs-2" id="heading">BookMyDoc. Welcomes you</strong>
+  </div>
+  <!--_________________________________________________________ form starts here__________________________________________________________ -->
+  <!-- ___________________________________________________________ basic credentils start here___________________________________________________ -->
+  <div class="container">
+    <form class="row g-3 " action="doctordetailform" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip01" class="form-label">Enter your name</label>
+        <input type="text" class="form-control" id="validationTooltip01" placeholder="First Name" name="fname" value="{{fname}}"
+          required disabled/>
+        <div class="valid-tooltip">Looks good!</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip02" class="form-label mt-3"></label>
+        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" name="lname" value="{{lname}}"
+          required disabled/>
+        <div class="valid-tooltip">Looks good!</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip03" class="form-label">Enter Your Email</label>
+        <input type="email" class="form-control" id="validationTooltip03" placeholder="xyz@gmail.com" name="email" value="{{email}}"
+          disabled required/>
+        <div class="valid-tooltip">Looks good!</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip04" class="form-label">Contact Number</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">+91</span>
+          <input type="" class="form-control" id="validationTooltip04" placeholder="" value="{{contact}}" name="contact" required />
+          <div class="valid-tooltip">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip21" class="form-label">Please upload your image.</label>
+        <span class="form-text"> (Will be shared with the Users.) </span>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="validationTooltip21" value="{{image}}" name="image" required />
+          <div class="valid-tooltip">Looks good!</div>
+          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip05" class="form-label">What is your Specialization</label>
+        <select class="form-select" id="validationTooltip05" value="{{specialization}}" name="specialization" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="Allergist">Allergist</option>
+          <option value="Cardiologist">Cardiologist</option>
+          <option value="Dermatologist">Dermatologist</option>
+          <option value="Endocrinologist">Endocrinologist</option>
+          <option value="Gastroenterologist">Gastroenterologist</option>
+          <option value="Hematologist">Hematologist</option>
+          <option value="Neurologist">Neurologist</option>
+          <option value="Oncologist">Oncologist</option>
+          <option value="Surgeon">Surgeon</option>
+          <option value="Ophthalmologist">Ophthalmologist</option>
+          <option value="Pediatrician">Pediatrician</option>
+          <option value="Psychiatrist">Psychiatrist</option>
+          <option value="Pulmonologist">Pulmonologist</option>
+          <option value="Radiologist">Radiologist</option>
+          <option value="Rheumatologist">Rheumatologist</option>
+          <option value="Urologist">Urologist</option>
+        </select>
+        <div class="invalid-tooltip">
+          Please select a valid Specialization
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip06" class="form-label">PLease Upload your degree in the Specialization</label>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="validationTooltip06" value="{{specdegree}}" name="specdegree" required />
+          <div class="valid-tooltip">Looks good!</div>
+          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip07" class="form-label">PLease Upload your License and registration
+          information</label>
+        <div class="input-group mb-3">
+          <input type="file" class="form-control" id="validationTooltip07" value="{{license}}" name="license" required />
+          <div class="valid-tooltip">Looks good!</div>
+          <label class="input-group-text" for="inputGroupFile02">Upload</label>
+        </div>
+      </div>
+
+      <div class="col-md-12 position-relative">
+        <label for="exampleFormControlTextarea1" class="form-label">Please Tell us about your
+            Academic qualifications in brief. <span class="fw-light">(will be shared with users)</span></label>
+        <textarea class="form-control" id="validationTooltip22" rows="3" name="shortdesc" value={{shortdesc}} required></textarea>
+        <div class="valid-tooltip">
+            Looks good!
+        </div>
+    </div>
+
+      <div class="col-md-12 position-relative">
+        <label for="exampleFormControlTextarea1" class="form-label">Please Tell us about your
+            experience in brief. <span class="fw-light">(will be shared with users)</span></label>
+        <textarea class="form-control" id="validationTooltip22" rows="3" name="desc" value={{desc}} required></textarea>
+        <div class="valid-tooltip">
+            Looks good!
+        </div>
+    </div>
+
+      <!-- ___________________________________________________________ basic credentils ends here___________________________________________________ -->
+
+      <!-- ____________________________________________________________________time________________________________________________ -->
+      <label for="validationTooltip05" class="form-label fw-bold fs-4">When are you available</label>
+      <strong>Morning</strong>
+      <div class="col-md-6 position-relative">
+       
+        <label for="validationTooltip08" class="form-label">From time</label>
+        <input type="time" class="form-control" id="validationTooltip08" placeholder="From-Time" name="fromtime"  required />
+
+        <div class="invalid-tooltip">Please select a valid Time</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip09" class="form-label">To Time</label>
+        <input type="time" class="form-control" id="validationTooltip09" placeholder="To-Time"  name="totime" required />
+        <div class="invalid-tooltip">Please select Time</div>
+      </div>
+
+      <strong>Evening</strong>
+      <div class="col-md-6 position-relative">
+       
+        <label for="validationTooltip08" class="form-label">From time</label>
+        <input type="time" class="form-control" id="validationTooltip08" placeholder="From-Time" name="eveningfromtime"  required />
+
+        <div class="invalid-tooltip">Please select a valid Time</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip09" class="form-label">To Time</label>
+        <input type="time" class="form-control" id="validationTooltip09" placeholder="To-Time"  name="eveningtotime" required />
+        <div class="invalid-tooltip">Please select Time</div>
+      </div>
+
+
+      <div class="col-md-12 position-relative">
+        <label for="validationTooltip10" class="form-label">Average amount of time required to see a patient.</label>
+        <select class="form-select" id="validationTooltip10" value="{{avgtime}}" name="avgtime" required>
+          <option selected disabled>choose</option>
+          <option value="5">5 min</option>
+          <option value="10">10 min</option>
+          <option value="15">15 min</option>
+          <option value="20">20 min</option>
+          <!-- <option>25 min</option> -->
+          <option value="30">30 min</option>
+          <option value="40">More then 30 min</option>
+        </select>
+        <div class="invalid-tooltip">Please select a valid Time</div>
+      </div>
+
+      <!-- ____________________________________________________________________time ends________________________________________________ -->
+
+      <!-- ____________________________________________________________________Address________________________________________________ -->
+
+      <label for="validationTooltip11" class="form-label fw-bold fs-4">Enter your Home address</label>
+      <span class="form-text"> (Will not be shared by the Users.) </span>
+
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip12" class="form-label">House Number</label>
+        <input type="text" class="form-control" id="validationTooltip12" value="{{housenum}}" name="housenum" required />
+        <div class="invalid-tooltip">Please enter your House Number</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip13" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationTooltip13" value="{{hcity}}" name="hcity" required />
+        <div class="invalid-tooltip">Please provide a valid city.</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip14" class="form-label">landmark</label>
+        <input type="text" class="form-control" id="validationTooltip14" value="{{hlandmark}}" name="hlandmark"
+          placeholder="Near Appolo Hospital" />
+        <!-- <div class="invalid-tooltip">
+                    Please provide a valid city.
+                </div> -->
+      </div>
+      <div class="col-md-3 position-relative">
+        <label for="validationTooltip15" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationTooltip15" value="{{hzip}}" name="hzip" required />
+        <div class="invalid-tooltip">Please provide a valid zip.</div>
+      </div>
+      <div class="col-md-3 position-relative">
+        <label for="validationTooltip16" class="form-label">State</label>
+        <select class="form-select" id="validationTooltip16" value="{{hstate}}" name="hstate" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Ladakh">Ladakh</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Puducherry">Puducherry</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Benga">West Bengal</option>
+        </select>
+        <div class="invalid-tooltip">Please select a valid state.</div>
+      </div>
+      <label for="validationTooltip05" class="form-label fw-bold fs-4">Enter your Clinic/Hosptal address</label>
+
+      <div class="col-md-12 position-relative">
+        <label for="validationTooltip17" class="form-label">Location</label>
+        <input type="text" class="form-control" id="validationTooltip17" value="{{clocation}}" name="clocation" required />
+        <div class="invalid-tooltip">Please provide a valid Location.</div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="validationTooltip18" class="form-label">City</label>
+        <input type="text" class="form-control" id="validationTooltip18" value="{{ccity}}" name="ccity" required />
+        <div class="invalid-tooltip">Please provide a valid city.</div>
+      </div>
+      <!-- <div class="col-md-6 position-relative">
+                <label for="validationTooltip07" class="form-label">landmark</label>
+                <input type="text" class="form-control" id="validationTooltip07" placeholder="Near Appolo Hospital"
+                    required>
+                <div class="invalid-tooltip">
+                    Please provide a valid city.
+                </div>
+            </div> -->
+      <div class="col-md-3 position-relative">
+        <label for="validationTooltip19" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="validationTooltip19" value="{{czip}}" name="czip" required />
+        <div class="invalid-tooltip">Please provide a valid zip.</div>
+      </div>
+      <div class="col-md-3 position-relative">
+        <label for="validationTooltip20" class="form-label">State</label>
+        <select class="form-select" id="validationTooltip20" value="{{cstate}}" name="cstate" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Bihar">Bihar</option>
+          <option value="Chandigarh">Chandigarh</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+          <option value="Daman and Diu">Daman and Diu</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Goa">Goa</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Himachal Pradesh">Himachal Pradesh</option>
+          <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Ladakh">Ladakh</option>
+          <option value="Lakshadweep">Lakshadweep</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Manipur">Manipur</option>
+          <option value="Meghalaya">Meghalaya</option>
+          <option value="Mizoram">Mizoram</option>
+          <option value="Nagaland">Nagaland</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Puducherry">Puducherry</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Sikkim">Sikkim</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Tripura">Tripura</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Benga">West Bengal</option>
+        </select>
+        <div class="invalid-tooltip">Please select a valid state.</div>
+      </div>
+      <!-- ____________________________________________________________________Address ends________________________________________________ -->
+
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+          <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+
+
+      <!-- #################################################### -->
+      <!-- <div class="col-12">
+        <button class="btn btn-outline-success" type="submit">
+          Submit form
+        </button>
+      </div> -->
+      <!-- ##################################333333333333333333 -->
+
+
+
+      <div class="col-12">
+        <!-- <button class="btn btn-outline-success" type="submit">Submit form</button> -->
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+            data-bs-target="#exampleModal-1">
+            submit
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-1" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure !!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Please check if the details filled by you is correct to the best of your knowledge.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-success" type="submit">Submit form</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+  <!--_________________________________________________________ form ends here_____________________________________________________________ -->
+  <!-- ____________________________________________________alert starts here___________________________________________________________ -->
+  <div class="">
+    <div
+      class="alert alert-success alert-dismissible fade show position-absolute start-50 top-50 translate-middle h-50 w-50"
+      role="alert">
+      <strong class="float-start position-absolute top-50 start-0 translate-middle-y fs-2 pb-5 mx-3">Hey Doctors !!
+        <br />
+        BookMyDoc. welcomes you <br />
+        we want to know more about you.</strong>
+      <img src="{% static 'doctor/DoctorDetailForm/doctors.png' %}" class="img-fluid h-75 pt-xxl-5 float-end" alt="" />
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  <!--_________________________________________________________ alert ends here_____________________________________________________________ -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+    crossorigin="anonymous"></script>
+
+  <!-- java script for form -->
+  <!-- <script src="{% static 'doctor/DoctorDetailForm/custom.js' %}"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,522 @@
+<!-- loading static files -->
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctors info</title>
+  <!-- _____________________________________________________custom css________________________________________________________________  -->
+  <link rel="stylesheet" href="{% static 'patient/doctorinfo/index.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!-- stylesheet fo animation starts -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- stylesheet fo animation ends -->
+</head>
+
+<body>
+
+  <!--_________________________________ navbar starts here _____________________________________________________________________ -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+      <strong class="text-success fs-2 ">BookMyDoc.</strong>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse search" id="navbarSupportedContent">
+        <form class="d-flex w-75" role="search">
+          <input class="form-control me-2 mx-4" type="search" placeholder="Search for Symptoms,Doctors,Hospitals"
+            aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+          <li class="nav-item mx-4">
+            <a class="nav-link " aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#doctors">Doctors</a>
+          </li>
+          <li class="nav-item mx-4">
+            <a class="nav-link" href="#reviews">reviews</a>
+          </li>
+          
+          <!-- <li class="login px-4 mx-1">
+            <a class="btn btn-outline-success" href="#">For Doctors</a>
+          </li> -->
+          <li class=" mx-4">
+            <a class="btn btn btn-outline-success" href="updatebookinglogout" role="button">Logout</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- _________________________________navbar ends here _______________________________________________________________________-->
+  <div class="container-fluid pt-2 ">
+    <a href="updatebookingbackdate" class="btn btn-outline-success">Go back</a>
+  </div>
+  <!-- ________________________________________________________content starts___________________________________________________ -->
+
+  <div class="container-fluid pt-2">
+    <div class="row ">
+      <div class="col-sm-6 mb-3 mb-sm-0 ">
+        <img src="/media/{{image}}" alt="" class="rounded-circle" height="468" width="446"  >
+        <div class="card mt-5">
+          <div class="row mx-1">
+            <div class="col-sm-4 mb-sm-0 mb-3 ">
+              <span>{{clocation}}</span>
+              <!-- <a href="https://www.marvelhospitals.in/" target="_blank" class="nav-link text-primary">Marvel
+                Multispeciality hospital</a> -->
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0">
+              <!-- <strong>Mon-Sat</strong> <br> -->
+              <span>Morning ({{fromtime}} to {{totime}})</span> <br>
+              <span>Evening ({{eveningfromtime}} to {{eveningtotime}})</span> <br>
+              <!-- <Span>Sun closed</Span> -->
+            </div>
+            <div class="col-sm-4 mb-3">
+              <Span> ₹1000</Span><br>
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-credit-card" viewBox="0 0 16 16">
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z" />
+                  <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z" />
+                </svg> online payment Available</span>
+            </div>
+          </div>
+          <div class="row mx-1 ">
+            <div class="col-sm-4 mb-3">
+              <button type="button" class="btn bg-dark-subtle" data-bs-toggle="tooltip" data-bs-placement="right"
+                data-bs-title="This reviews are based on clinic cleanliness,waiting time and reviews from the users.">
+                4.5 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-star-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-star-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-star-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-star-fill"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class="bi bi-star-half"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="row mx-1 mb-3 ">
+            <div class="col-sm-4 mb-3">
+              <strong>Address</strong> <br>
+              <span> {{clocation}}, {{ccity}}, {{cstate}}, {{czip}}</span>
+              <br>
+              <a href="https://www.google.com/maps/place/12.92547,77.63599" target="_blank" rel="noopener noreferrer"
+                style="text-decoration: none;">Get Direction</a>
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias ab nesciunt dolorem laudantium ea
+              delectus.
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 mb-3 mb-sm-0 ">
+        <div class="col-sm-12 mb-3 mb-sm-0 text-center text-success fw-bold fs-3 mt-3 ">{{fname}} {{lname}}</div>
+        <div class="col-sm-12 mb-3 mb-sm-0  text-center ">{{specialization}}</div>
+        <div class="col-sm-12 mb-3 mb-sm-0  text-center ">{{shortdesc}}</div>
+        <!-- _____________________________________________________________________for verified _____________________________________________________________________ -->
+        <div class="col-sm-12 mb-3 mb-sm-0 text-center pt-2 "><svg xmlns="http://www.w3.org/2000/svg" width="20"
+            height="18" fill="green" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+          </svg><span> Medical Registration verified</span></div>
+        <!-- ___________________________________________________________for thumbs up____________________________________________________ -->
+        <div class="col-sm-12 mb-2 sm-0 text-center pt-2 " ><svg xmlns="http://www.w3.org/2000/svg" width="20"
+            height="18" fill="green" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+            <path
+              d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z" />
+          </svg> <span class="text-success">99% (200votes)</span>
+        </div>
+        <div class="accordion" id="accordionPanelsStayOpenExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                aria-controls="panelsStayOpen-collapseOne">
+                More About<strong class="px-1">{{fname}} {{lname}}</strong>
+              </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <strong>{{fname}} {{lname}} is a {{specialization}}</strong>
+                {% comment %} Diabetologist at Marvel Speciality Hospital and Fertility
+                Center, Kormangala, behind Barbeque Nation. Dr Abhishek Mishra has more that 22 yrs of
+                experience and he is specialized in treating Strokes, Fits, Migrane, Backpain, Memory loss & Thyroid
+                disorders. Dr Abhishek Mishra is passionate about his career and the way he extends his service
+                to the patients. Dr Abhishek Mishra provides immense help to his patients and believes in
+                motivating them and has attended many seminars and conferences across the globe and has also got his
+                writings published in many prominent journals. {% endcomment %}
+                {{desc}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 mb-3 mb-sm-0 text-center pt-3  mt-2 " data-aos="fade-up">
+          <strong class="text-success fs-3 ">Pick a time Slot</strong>
+        </div>
+        <div class="col-sm-12 mb-3 mb-sm-0 pt-4 ">
+          <div id="carouselExampleFade" class="carousel slide carousel-fade carousel-dark card">
+            <div class="carousel-inner">
+              <div class="carousel-item active ">
+                <div class="text-center">
+                  <form class="m-5" method="post">
+                    {% csrf_token %}
+                  <strong>Select Date:</strong>
+                  <input type="date" name="date" id="">
+                  <button type="submit">Submit</button>
+                </form>
+                {% comment %} </div>
+                
+                <div class="col-sm-12 mb-3 mb-sm-0  pt-3 mx-3 ">
+                  
+                </div> {% endcomment %}
+              
+                
+                {% comment %} <div class="row pb-3 mx-4">
+                  {% for key, value in SLOT.items %}
+                  <div class="col-sm-4 mb-3 mb-sm-0  pt-3 ">
+                    
+                      <input type="hidden" value="{{key}}" name="slotTime">
+                      <input type="hidden" value="{{value}}" name="slotNum">
+                    <button type="submit" class="btn btn-outline-success" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">{{key}}</button>
+                    <p class="px-3 fw-light">({{value}} slots left)</p>
+                  </div> {% endcomment %}
+                  {% comment %} {% endfor %} {% endcomment %}
+                  <!-- <div class="col-sm-4 mb-3 mb-sm-0  pt-3 ">
+                    <button class="btn btn-outline-success" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">11:00 am -> 12:00 pm</button>
+                    <p class="px-3 fw-light">(4 slots left)</p>
+
+                  </div>
+                  <div class="col-sm-4 mb-3 mb-sm-0  pt-3 ">
+                    <button class="btn btn-outline-success" data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop">12:00 pm -> 1:00 pm</button>
+                    <p class="px-3 fw-light">(4 slots left)</p>
+
+                  </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--______________________________________________ Modal_______________________________________________________________________ -->
+  <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to book the slot.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success">Book SLot</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- ________________________________________________________content ends___________________________________________________ -->
+
+  <!-- _____________________________________________________________________for qna starts___________________________________________________ -->
+  <div class="container-fluid bg-dark-subtle pt-4 pb-4 mt-1 "data-aos="fade-up">
+    <div class="container pt-2 bg-light-subtle pb-2">
+      <div class="text-center">
+        <strong class="text-success fs-3">Common Question and Answer</strong>
+      </div>
+      <div class="card mb-3 mt-2 ">
+        <span><strong>Q Where does {{fname}} {{lname}} practice? <br>
+            A</strong> {{fname}} {{lname}} practices at {{clocation}}, {{ccity}}, {{cstate}}, {{czip}}.</span>
+      </div>
+      <div class="card mb-3 ">
+        <span><strong>Q How can I take {{fname}} {{lname}}'s appointment ? <br>
+            A</strong> You can book {{fname}} {{lname}}'s appointment online through BookMyDoc for in-clinic visit with
+          the doctor.</span>
+      </div>
+      <div class="card mb-3 ">
+        <span><strong>Q In what field does {{fname}} {{lname}} specialized in ? <br>
+            A</strong> {{fname}} {{lname}} is a {{specialization}}</span>
+      </div>
+      <div class="card mb-3 ">
+        <span><strong>Q What is Dr. Abhishek Mishra's rating? <br>
+            A</strong> Dr. Abhishek Mishra has been recommended by 825 patients and has recieved stories from
+          242 patients. You can read detailed reviews of the doctor on BookMyDoc.</span>
+      </div>
+      <div class="card mb-3 ">
+        <span><strong>Q What is Dr. Abhishek Mishra's education qualification? <br>
+            A</strong> Dr. Abhishek Mishra has the following qualifications - MBBS, MD - General Medicine, DNB -
+          Neurology. You can book the doctor through the doctor's profile on BookMyDoc.</span>
+      </div>
+    </div>
+  </div>
+  <!-- _____________________________________________________________________for qna ends___________________________________________________ -->
+
+  <!-- ______________________________________________________________review starts_______________________________________________________ -->
+  <div class="container-fluid text-bg-secondary mt-5 pb-5" id="reviews" data-aos="fade-up">
+    <section>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-xl-8 text-center">
+          <h2 class="mb-4">Review's</h2>
+          <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+            "Read Real Customer Reviews and Testimonials: Discover What People Are Saying About Our Products/Services and Their Experience with Our Company"
+          </p>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div class="col-md-4 mb-5 mb-md-0">
+          <div class="d-flex justify-content-center mb-4">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" class="rounded-circle shadow-1-strong"
+              width="150" height="150" />
+          </div>
+          <h5 class="mb-3">Maria Smantha</h5>
+          <!-- <h6 class="text-primary mb-3">Web Developer</h6> -->
+          <p class="px-xl-3">
+            <i class="fas fa-quote-left pe-2"></i>"I had a great experience with this healthcare provider. The staff were friendly and knowledgeable, and I felt like they really cared about my health and wellbeing. The facilities were clean and modern, and the appointments always started on time. I would definitely recommend this provider to anyone looking for high-quality healthcare services."
+          </p>
+          <ul class="list-unstyled d-flex justify-content-center mb-0">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star"
+                viewBox="0 0 16 16">
+                <path
+                  d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-5 mb-md-0">
+          <div class="d-flex justify-content-center mb-4">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" class="rounded-circle shadow-1-strong"
+              width="150" height="150" />
+          </div>
+          <h5 class="mb-3">Lisa Cudrow</h5>
+          <!-- <h6 class="text-primary mb-3">Graphic Designer</h6> -->
+          <p class="px-xl-3">
+            <i class="fas fa-quote-left pe-2"></i>"I've been a patient with this healthcare provider for several years, and I've always been impressed with the level of care I receive. The doctors are highly skilled and knowledgeable, and they take the time to listen to my concerns and answer my questions. The staff are also very helpful and friendly. I feel like I'm in good hands with this provider."
+          </p>
+          <ul class="list-unstyled d-flex justify-content-center mb-0">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-0">
+          <div class="d-flex justify-content-center mb-4">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp" class="rounded-circle shadow-1-strong"
+              width="150" height="150" />
+          </div>
+          <h5 class="mb-3">John Smith</h5>
+          <!-- <h6 class="text-primary mb-3">Marketing Specialist</h6> -->
+          <p class="px-xl-3">
+            <i class="fas fa-quote-left pe-2"></i>"I recently had to visit the emergency room at this hospital, and I was blown away by the level of care I received. The doctors and nurses were incredibly attentive and responsive, and they made sure I was comfortable and well-informed throughout the entire process. Despite the stressful situation, I felt confident and safe in their hands. I'm so grateful for their expertise and compassion."
+          </p>
+          <ul class="list-unstyled d-flex justify-content-center mb-0">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill"
+                viewBox="0 0 16 16">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half"
+                viewBox="0 0 16 16">
+                <path
+                  d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+              </svg>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- ______________________________________________________________review ends_______________________________________________________ -->
+  <!-- ___________________________________________________footer starts here__________________________________________________________________ -->
+  <footer class="footer bg-dark text-center text-white">
+    <div class="container-fluid position-relative">
+      <h5> Follow us on</h5>
+      <div class="row ">
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <a class=" btn btn-light" href="#" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="currentColor" class="bi bi-facebook"
+              viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <a class=" btn btn-light" href="#" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="currentColor" class="bi bi-linkedin"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <a class=" btn btn-light" href="#" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="currentColor" class="bi bi-instagram"
+              viewBox="0 0 16 16">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg>
+          </a>
+        </div>
+        <div class="col-sm-3 mb-3 mb-sm-0">
+          <a class=" btn btn-light" href="#" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="currentColor" class="bi bi-twitter"
+              viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="g-col-12 " href="#">Important Links</div>
+        <a class="g-col-12 nav-link pt-2" href="#">About Us </a>
+
+        <a class="g-col-12 nav-link pt-2" href="#">Services</a>
+        <a class="g-col-12 nav-link pt-2 pb-2" href="#">Tutorial</a>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="container-fluid bg-black">
+      <div>&copy Doc Schedular 2023</div>
+    </div>
+  </footer>
+
+  <!-- ___________________________________________________footer ends here__________________________________________________________________ -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <!-- _____________________________________________________________________custom_javascript______________________________________________ -->
+  <script src="{% static 'patient/doctorinfo/custom.js' %}"></script>
+  <!-- script for animation start -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+      AOS.init();
+  </script>
+  <!-- script for animation end -->
+
+</body>
+
+</html>

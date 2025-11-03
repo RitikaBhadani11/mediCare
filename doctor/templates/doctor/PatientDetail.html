@@ -1,0 +1,198 @@
+<!-- loading static files -->
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patient Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <!-- _______________________________________________adding custom css file________________________________ -->
+    <!-- {% comment %} <link rel="stylesheet" href="{% static 'patient/form/form_style.css' %}"> {% endcomment %}
+</head> -->
+
+<body>
+    <div class="position-relative">
+        <div class="container text text-center  p-3 ">
+            <a class="btn btn-outline-success float-start" href="javascript:history.back()" role="button">Go-back</a>
+            <strong class="fs-2 pb-2 " id="heading"> Patient's Form.</strong>
+        </div>
+    </div>
+    <!--_________________________________________________________ form starts here__________________________________________________________ -->
+    <!-- ___________________________________________________________ basic credentils start here___________________________________________________ -->
+    <div class="container">
+        <form class="row g-3 needs-validation" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip01" class="form-label">Enter your name</label>
+                <input type="text" class="form-control" id="validationTooltip01" placeholder="First Name"
+                    value="{{fname}}" name="fname" disabled required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip02" class="form-label mt-3"></label>
+                <input type="text" class="form-control " id="validationTooltip02" placeholder="Last name"
+                    value="{{lname}}" name="lname" disabled required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip02" class="form-label mt-3">Age</label>
+                <input type="number" class="form-control " id="validationTooltip02" placeholder="Age" value="{{age}}"
+                    name="age" disabled required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip02" class="form-label mt-3">Height</label>
+                <input type="number" class="form-control " id="validationTooltip02" placeholder="In Feets"
+                    value="{{height}}" name="height">
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+
+
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip02" class="form-label mt-3">What is your weight in kg.</label>
+                <input type="number" class="form-control " id="validationTooltip02" value="{{weight}}" name="weight" >
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip05" class="form-label">What is your blood group.</label>
+                <input class="form-select" id="validationTooltip05" value="{{bloodgrp}}" name="bloodgrp" disabled>
+                    
+          
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip05" class="form-label">What is your gender.</label>
+                <input class="form-select" id="validationTooltip05" value="{{gender}}" name="gender" disabled required>
+                    
+            
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6 position-relative">
+                <label for="validationTooltip02" class="form-label mt-3">Date Of Birth</label>
+                <input type="date" class="form-control " id="validationTooltip02" placeholder="DOB" required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div> -->
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip03" class="form-label">Enter Your Email</label>
+                <input type="email" class="form-control" id="validationTooltip03" placeholder="{{email}}"
+                    value="{{email}}" name="email" disabled required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip04" class="form-label">Contact Number</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">+91</span>
+                    <input type="" class="form-control" id="validationTooltip04" placeholder="" value="{{contact}}"
+                        name="contact" disabled>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <!-- _________________________________________________________________For Bmi_________________________________________________________________ -->
+
+            <!-- _________________________________________________________________For Bmi ends_________________________________________________________________ -->
+
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip16" class="form-label">State</label>
+                <input class="form-select" id="validationTooltip16" value="{{state}}" name="state" disabled >
+              
+                <div class="invalid-tooltip">
+                    Please select a valid state.
+                </div>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip05" class="form-label">Do You have any Allergy</label>
+                <input class="form-select" id="validationTooltip05" value="{{allergy}}" name="allergy" disabled>
+                    
+           
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+            <div class="col-md-4 position-relative">
+                <label for="validationTooltip05" class="form-label">Do You have any Medications going on.</label>
+                <input class="form-select" id="validationTooltip05" value="{{medications}}" name="medications"
+                    disabled>
+            
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip05" class="form-label">Do you have an insurance.</label>
+                <input class="form-select" id="validationTooltip05" value="{{insurance}}" name="insurance" disabled>
+
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+            <div class="col-md-6 position-relative">
+                <label for="validationTooltip05" class="form-label">What is your alcohol/drug taking history</label>
+                <input class="form-select" id="validationTooltip05" value="{{drughistory}}" name="drughistory"
+                    disabled>
+                <div class="invalid-tooltip">
+                    Please select a valid Answer
+                </div>
+            </div>
+            <div class="col-md-12 position-relative">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Write about your Symptoms.(in
+                        brief)</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="symptoms"
+                        disabled>{{symptoms}}</textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="exampleFormControlTextarea1" class="form-label">Write about your Medical history.(in
+                        brief)</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        name="medicalhistory" disabled>{{medicalhistory}}</textarea>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+    <!--_________________________________________________________ form ends here_____________________________________________________________ -->
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
+
+    <!-- java script for form -->
+    <!-- <script src="{% static 'patient/form/custum.js' %}"></script> -->
+
+    <!-- java script for Bmi -->
+    <!-- <script src="{% static 'patient/form/Bmi.js' %}"></script> -->
+</body>
+
+</html>

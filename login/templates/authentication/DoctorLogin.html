@@ -1,0 +1,125 @@
+   <!-- loading static files -->
+   {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'login/doctor/DoctorLogin.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand text-success fw-bolder fs-3"  href="#">BookMyDoc.</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse search" id="navbarSupportedContent">
+            <!-- <form class="d-flex" role="search">
+              <input class="form-control me-2 mx-5" type="search" placeholder="Search for Symptoms,Doctors,Hospitals"
+                aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+            <div class="position-absolute top-0 end-0 px-3 pt-2">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Back</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signin">For Users</a>
+              </li>
+              <!-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Book</a></li>
+                  <li><a class="dropdown-item" href="#">Buy medicines</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Get notified of medicine</a></li>
+                  <li class="nav-item">
+                    <a class="dropdown-item" href="/html/contactus.html">Contact Us</a>
+                  </li> -->
+                </ul>
+              </li>
+            </ul>
+            </div>
+    
+          </div>
+        </div>
+      </nav>
+
+      {% for message in messages%}
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Message:</strong>{{message}}  
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endfor %}
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+        <div class="Container">
+            <div class="div1"></div>
+            <div class="div2"></div>
+            <div class="div3">
+                <section>
+                    <div class="form-box">
+                        <div class="form-value">
+
+
+
+                          <!-- -------------------------------------------FORM STARTS HERE-------------------------------- -->
+
+                            <form action="/docsignin" method="post">
+                              {% csrf_token %}
+
+                                <h2>Login</h2>
+                                <div class="inputbox">
+                                    <ion-icon name="person-outline"></ion-icon>
+                                    <input type="username" name="username" required>
+                                    <label for="">Username</label>
+                                </div>
+                                <div class="inputbox">
+                                    <ion-icon name="lock-closed-outline"></ion-icon>
+                                    <input type="password" name="password" required>
+                                    <label for="">Password</label>
+                                </div>
+                                <div class="forget">
+                                    <label for=""><input type="checkbox">Remember Me</label>
+                                    <a href="#">Forget Password</a>
+                                </div>
+                                <button type=submit>Sign in </button>
+                                <div class="register">
+                                    <p>Don't have an account?<a href="/docsignup">Register</a></p>
+                                </div>
+
+                            </form>
+
+
+                            <!-- --------------------------------------FORM ENDS HERE-------------------------------- -->
+
+                        </div>
+                    </div>
+                </section>
+                <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* animation */
+@keyframes fade {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.body{
+    animation: fade 10s ;
+}
+
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 30vw;
+    }
+}
+/* #heading {
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap; 
+    word-wrap: break-word;
+    color: hsl(0, 0%, 0%);
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 4s steps(44)  1 normal both;
+} */
